@@ -1,5 +1,14 @@
 import supertest from "supertest";
-import app from "../../src/app";
+import { getConnection } from "typeorm";
+import app, { init } from "../../src/app";
+
+beforeAll(async () => {
+  await init()
+})
+
+afterAll(async () => {
+  await getConnection().close()
+})
 
 describe("GET /test", () => {
   it("should answer with text \"OK!\" and status 200", async () => {
