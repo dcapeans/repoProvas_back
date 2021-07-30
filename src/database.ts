@@ -5,8 +5,11 @@ export default async function connect(){
     const connection = connectionManager.create({
         name: "default",
         type: "postgres",
-        url: "postgres://postgres:123456@localhost:5432/repo_provas",
-        entities: ["src/entities/*.ts"]
+        url: process.env.DATABASE_URL,
+        entities: ["src/entities/*.ts"],
+        ssl: {
+            rejectUnauthorized: false
+        }
     });
     await connection.connect()
     return connection
