@@ -8,6 +8,6 @@ module.exports = {
   migrations: ["dist/src/migrations/*.js"],
   cli: {
     migrationsDir: "src/migrations",
-    entitiesDir: "dist/entities/*.js"
+    entitiesDir: "dist/src/entities/*.js"
   }
 };
