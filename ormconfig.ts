@@ -4,7 +4,7 @@ module.exports = {
   type: "postgres",
   url: process.env.DATABASE_URL,
   migrationsTableName: "migrations",
-  entities: ["dist/src/entities/*.js"],
+  entities: [`${process.env.NODE_ENV === 'production' ? 'dist' : 'src'}/entities/*.*`],
   migrations: ["dist/src/migrations/*.js"],
   ssl: {
     rejectUnauthorized: false,
