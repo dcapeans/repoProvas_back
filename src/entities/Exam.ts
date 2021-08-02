@@ -12,6 +12,9 @@ export default class Exam {
     name: string
 
     @Column()
+    link: string
+
+    @Column()
     category_id: number
 
     @ManyToOne(() => Category, category => category.exams)

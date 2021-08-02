@@ -1,5 +1,6 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinTable, ManyToMany, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import Exam from "./Exam";
+import Subject from "./Subject";
 
 @Entity('teachers')
 export default class Teacher {
@@ -11,4 +12,8 @@ export default class Teacher {
 
     @OneToMany(() => Exam, exam => exam.teacher)
     exams: Exam[]
+
+    @ManyToMany(() => Subject, subject => subject.teachers)
+    @JoinTable()
+    subjects: Subject[]
 }

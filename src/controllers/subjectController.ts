@@ -6,7 +6,6 @@ import Subject from '../entities/Subject'
 export async function fetchSubjects( req: Request, res: Response){
     try {
         const tasks = await getRepository(Subject).find()
-        console.log(tasks)
         res.send(tasks).status(200)
     } catch (e) {
         console.log(e)
